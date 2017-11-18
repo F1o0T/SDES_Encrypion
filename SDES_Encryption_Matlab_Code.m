@@ -1,6 +1,6 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%given Inputs%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-key        = [ 1 1 0 0 0 1 1 1 1 0 ]
-plain_text = [ 0 0 1 0 1 0 0 0     ]
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%given Inputs%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+key        = [ 1 0 0 0 1 0 0 0 1 0 ]
+plain_text = [ 1 1 1 0 1 1 1 0     ]
 %%%%%%%%%%%%%%%%%%%%%%%Key_1 and Key_2 generation%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 original_permutated10_key                                                     = [ key(3) key(5) key(2) key(7) key(4)  key(10) key(1) key(9) key(8) key(6) ] 
 o_p_k                                                                         = original_permutated10_key;
@@ -34,7 +34,7 @@ row_of_the_rightmost_half                                                     = 
 column_of_the_rightmost_half                                                  = xored_k1_w_t_e_r_h_o_i_p_p_t(7)+ xored_k1_w_t_e_r_h_o_i_p_p_t(6) *2
 s1                                                                            = [ 0 1 2 3 ; 2 0 1 3 ; 3 0 1 0 ; 2 1 0 3 ]  
 the_right_most_value_of_sbox                                                  = s1(row_of_the_rightmost_half + 1 , column_of_the_rightmost_half + 1)
-sbox_output_of_our_last_xor_operation_output                                  = [ the_left_most_value_of_sbox/2 rem(the_left_most_value_of_sbox,2) the_right_most_value_of_sbox/2 rem(the_right_most_value_of_sbox,2) ]
+sbox_output_of_our_last_xor_operation_output                                  = [ floor(the_left_most_value_of_sbox/2) rem(the_left_most_value_of_sbox,2) floor(the_right_most_value_of_sbox/2) rem(the_right_most_value_of_sbox,2) ]
 sbox_o_o_o_l_x_o_o                                                            = sbox_output_of_our_last_xor_operation_output;
 sbox_output_permuted4                                                         = [ sbox_o_o_o_l_x_o_o(2) sbox_o_o_o_l_x_o_o(4) sbox_o_o_o_l_x_o_o(3) sbox_o_o_o_l_x_o_o(1) ]
 F_of_R_and_k1                                                                 = sbox_output_permuted4        
@@ -56,7 +56,7 @@ the_left_most_value_of_sbox                                                   = 
 row_of_the_rightmost_half                                                     = xored_k2_w_t_e_r_h_o_i_t_fk2 (8)+ xored_k2_w_t_e_r_h_o_i_t_fk2 (5) *2
 column_of_the_rightmost_half                                                  = xored_k2_w_t_e_r_h_o_i_t_fk2 (7)+ xored_k2_w_t_e_r_h_o_i_t_fk2 (6) *2
 the_right_most_value_of_sbox                                                  = s1(row_of_the_rightmost_half + 1 , column_of_the_rightmost_half + 1)
-sbox_output_of_our_last_xor_operation_output                                  = [ the_left_most_value_of_sbox/2 rem(the_left_most_value_of_sbox,2) the_right_most_value_of_sbox/2 rem(the_right_most_value_of_sbox,2) ]
+sbox_output_of_our_last_xor_operation_output                                  = [ floor(the_left_most_value_of_sbox/2) rem(the_left_most_value_of_sbox,2) floor(the_right_most_value_of_sbox/2) rem(the_right_most_value_of_sbox,2) ]
 sbox_o_o_o_l_x_o_o                                                            = sbox_output_of_our_last_xor_operation_output;
 sbox_output_permuted4                                                         = [ sbox_o_o_o_l_x_o_o(2) sbox_o_o_o_l_x_o_o(4) sbox_o_o_o_l_x_o_o(3) sbox_o_o_o_l_x_o_o(1) ]
 F_of_R_and_k2                                                                 = sbox_output_permuted4        
